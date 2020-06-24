@@ -1,0 +1,50 @@
+<div class="container">
+  <div style="text-align: center;display: table-cell;vertical-align: middle;">
+      <img src="/images/logo.png" alt="">
+  </div>
+
+
+  <% if (isAdmin) {%>
+      Developer Tools:
+      <a href="/gridEditor"><div class="button">Edit Grid Data</div></a>
+  <% } %>
+  <div><a href="/pro">TEST</a></div>
+
+  <div style="text-align: center;">
+    Sort Grid By:
+    <div>
+      <span class="control_button" id="Department_ASC"><a href="/sort/department/1">Department ASC</a></span>
+      <span class="control_button" id="Department_DESC"><a href="/sort/department/-1">Department DESC</a></span>
+      <span class="control_button" id="Professor_ASC"><a href="/sort/prof_name/1">Professor ASC</a></span>
+      <span class="control_button" id="Professor_DESC"><a href="/sort/prof_name/-1">Professor DESC</a></span>
+      <span class="control_button" id="Course_ID_ASC"><a href="/sort/courseid/1">Course ID ASC</a></span>
+      <span class="control_button" id="Course_ID_DESC"><a href="/sort/courseid/-1">Course ID DESC</a></span>
+    </div>
+  </div>
+
+    <br>
+  <div class="grid_container">
+    <div class="grid_header" style="grid-column: first/second;">Department</div>
+    <div class="grid_header" style="grid-column: second/third;">Professor</div>
+    <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
+    <div class = "grid_header" style="grid-column:fourth/fifth;">Action</div>
+
+    
+    <div class="grid_content">Computer Sciece</div>
+    <div class="grid_content"><a href="/test_prof_profile">Antonella Dillilo</a></div>
+    <div class="grid_content"><a href="/test_class_schedule">Data Structures</a></div>
+    <div class="grid_content">Test</div>
+    
+  
+    <% grid_db.forEach(element => {%>
+      <div class="grid_content"><%= element.department %></div>
+      <div class="grid_content"><%= element.prof_name %><div class="grid_content_hidden">Office: <%= element.prof_office %>, Hours: <%= element.prof_hours %></div></div>
+      <div class="grid_content"><%= element.courseid %></div>
+      <div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>
+    <% }) %>
+
+
+
+
+  </div>
+</div>
