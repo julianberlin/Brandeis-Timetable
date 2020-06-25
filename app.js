@@ -11,6 +11,7 @@ const express = require("express"),
 const mongoose = require("mongoose");
 mongoose.connect(
   'mongodb://localhost/timetable',
+  //provess.env.MONGODB_URI,
   {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true})
 
 // connect with authentication
@@ -78,7 +79,7 @@ app.post('/contact',
   });
 
   const Grid=require("./models/Grid");
-  app.get("/", 
+  app.get("/",
   async(req, res) => {
     try{
       res.locals.grid_db = await Grid.find().sort({department:1});
@@ -91,7 +92,7 @@ app.post('/contact',
     }
   });
 
-  app.get("/sort/:field/:dir", 
+  app.get("/sort/:field/:dir",
   async(req, res) => {
     try{
       let f = req.params.field
