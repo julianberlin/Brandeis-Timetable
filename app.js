@@ -15,7 +15,7 @@ mongoose.connect(
   {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true})
 
 // connect with authentication
-const authRouter = require("./routes/authentication")
+const authRouter = require("./Routes/authentication")
 app.use(authRouter)
 
 // check mongoDB
