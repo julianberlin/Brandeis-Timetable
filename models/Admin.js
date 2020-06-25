@@ -6,4 +6,4 @@ var adminSchema = Schema( {
   googleemail: String
 } );
 
-module.exports = mongoose.model('Admin', adminSchema);
+module.exports = mongoose.model('AdminT4', adminSchema);

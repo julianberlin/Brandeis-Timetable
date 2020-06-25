@@ -12,4 +12,4 @@ const gridSchema = Schema( {
   //bugs: [{bugs_name: String, bugs_hous: String}]
 });
 
-module.exports = mongoose.model('Grid', gridSchema);
+module.exports = mongoose.model('GridT4', gridSchema);
