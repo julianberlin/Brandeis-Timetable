@@ -49,7 +49,7 @@ app.get("/profile", homeController.showProfile);
 app.get("/pro", homeController.showSchedule);
 //app.post("/contact", homeController.postedSignUpForm);
 
-//
+/*
 app.get("/addAdmins", async(req,res,next) => {
   try{
     await Admin.deleteMany({});
@@ -64,7 +64,7 @@ app.get("/addAdmins", async(req,res,next) => {
   catch(e){
     next(e);
   }
-})
+}*/
 
 const Contact=require("./models/Contact");
 app.get("/showContacts",
