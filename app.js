@@ -10,8 +10,8 @@ const express = require("express"),
 // connect with mongoose
 const mongoose = require("mongoose");
 mongoose.connect(
-  'mongodb://localhost/timetable',
-  //provess.env.MONGODB_URI,
+  //'mongodb://localhost/timetable',
+  process.env.MONGODB_URI,
   {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true})
 
 // connect with authentication
