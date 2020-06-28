@@ -47,6 +47,7 @@ router.use((req,res,next) => {
           if (admin) {
             res.locals.isAdmin = true
           }
+          next()
         })
         .catch(e => {
           next(e)
@@ -54,8 +55,8 @@ router.use((req,res,next) => {
     }
   else {
     res.locals.loggedIn = false
+    next()
   }
-  next()
 })
 
 

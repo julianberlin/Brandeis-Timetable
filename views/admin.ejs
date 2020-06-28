@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <h1>Admins</h1>
+    <table class="table">
+      <tbody>
+        <% admins.forEach(admin => { %>
+          <tr>
+            <td>
+              <%= admin.googleemail %>
+            </td>
+            <td>
+              <a href="<%= `admin/${admin._id}/delete?_method=DELETE` %>"
+                onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <form action="/admin" method="post">
+      <label for="email">Email</label>
+      <input type="email" name="email" value="">
+      <input class="button" type="submit" value="Add">
+    </form>
+  </div>
+</div>
