@@ -29,7 +29,6 @@ exports.postedSignUpForm = (req, res) => {
 };
 
 exports.showAbout = (req, res) => {
-  console.log("serving about")
   res.render("about");
 };
 
