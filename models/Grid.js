@@ -8,7 +8,7 @@ const gridSchema = Schema( {
   courseid: String,
   prof_hours: String,
   prof_office: String,
-  //tas: [{ta_name: String, ta_hours: String}],
+  tas: [{ta_name: String, ta_hours: String}]
   //bugs: [{bugs_name: String, bugs_hous: String}]
 });
 

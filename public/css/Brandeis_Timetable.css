@@ -66,9 +66,14 @@ a {
   color:rgb(56, 56, 56);
   border: 1px solid rgb(0, 0, 0);
   width: 120px;
+  text-align: center;
 }
 .control_button:hover {
   background-color: rgb(92, 92, 92);
+  color: rgb(255, 253, 253);
+}
+.control_button:focus {
+  background-color: #ed4a0f;
   color: rgb(255, 253, 253);
 }
 

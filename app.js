@@ -5,8 +5,8 @@ const express = require("express"),
   app = express(),
   homeController = require("./controllers/homeController"),
   errorController = require("./controllers/errorController"),
-  layouts = require("express-ejs-layouts"),
-  Admin = require("./models/Admin");
+  layouts = require("express-ejs-layouts");
+  //Admin = require("./models/Admin");
 // connect with mongoose
 const mongoose = require("mongoose");
 mongoose.connect(
@@ -39,7 +39,7 @@ app.use(express.static("public"));
 app.get("/about",homeController.showAbout);
 app.get("/courses", homeController.showCourses);
 app.get("/contact", homeController.showSignUp);
-app.get("/gridEditor", homeController.showgridEditor);
+//app.get("/gridEditor", homeController.showgridEditor);
 app.get("/bio", homeController.showBio);
 app.get("/andrew", homeController.showAndrew);
 app.get("/julian",homeController.showJulian);
@@ -64,7 +64,7 @@ app.get("/addAdmins", async(req,res,next) => {
   catch(e){
     next(e);
   }
-}*/
+});*/
 
 const Contact=require("./models/Contact");
 app.get("/showContacts",
@@ -138,7 +138,26 @@ app.post('/contact',
    }
  });
 
- app.post('/gridEditor_addition',
+ app.post("/searchGrid",
+ async(req, res) => {
+   try{
+    let prof_name = req.body.prof_name
+    let department = req.body.department
+    let courseid = req.body.courseid
+    //let ta_name = req.body.ta_name
+    res.locals.grid_db = await Grid.find({prof_name:prof_name,department:department,courseid:courseid}).sort({department:1});
+    console.log("test")
+    res.render('index')
+   }
+   catch(e) {
+     console.log("Error:"+e);
+     console.dir(theError);
+     res.send("There was an error in /index!");
+   }
+ });
+
+
+ app.post('/addCourse',
   async(req,res,next) => {
     try {
       let prof_name = req.body.prof_name
@@ -147,26 +166,65 @@ app.post('/contact',
       let prof_hours = req.body.prof_hours
       let prof_office = req.body.prof_office
       let newGrid = new Grid({prof_name:prof_name, department:department, courseid:courseid, prof_hours:prof_hours, prof_office:prof_office})
-      //add let tas = req.body.tas, let bugs = req.body.bugs, tas:tas, bugs:bugs
       await newGrid.save()
-      res.redirect('/gridEditor')
+      res.redirect('/')
     }
     catch(e) {
       next(e)
     }
   });
-  app.post('/gridEditor_deletion',
+  app.post('/deleteCourse',
   async(req,res,next) => {
     try {
       let prof_name = req.body.prof_name
       let courseid = req.body.courseid
       await Grid.deleteOne({prof_name:prof_name, courseid:courseid})
-      res.redirect('/gridEditor')
+      res.redirect('/')
     }
     catch(e) {
       next(e)
     }
   });
+
+  app.post('/addTA',
+  async(req,res,next) => {
+    try {
+      let prof_name = req.body.prof_name
+      let courseid = req.body.courseid
+      let ta_name = req.body.ta_name
+      let ta_hours = req.body.ta_hours
+      let course = await Grid.findOne({prof_name:prof_name, courseid:courseid})
+      course.tas.push({ta_name:ta_name, ta_hours:ta_hours})
+      await course.save()
+      res.redirect('/')
+    }
+    catch(e) {
+      next(e)
+    }
+  });
+
+  app.post('/delTA',
+  async(req,res,next) => {
+    try {
+      let prof_name = req.body.prof_name
+      let courseid = req.body.courseid
+      let name = req.body.ta_name
+      let course = await Grid.findOne({prof_name:prof_name, courseid:courseid})
+      let count = 0;
+      course.tas.forEach(ta => {
+        if(ta.ta_name == name){
+          course.tas.splice(count,1);
+        }
+        count = count +1;
+      })
+      await course.save()
+      res.redirect('/')
+    }
+    catch(e) {
+      next(e)
+    }
+  });
+
 
 
 app.use(errorController.pageNotFoundError);

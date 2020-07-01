@@ -3,15 +3,107 @@
       <img src="/images/logo.png" alt="">
   </div>
 
+  <% if (isAdmin) {%>
+    <div style="text-align:center;">
+      <div>Developer Tools:</div>
+      <div class="control_button" id="add_courseButton" onclick="addCourse()">Add Course +</div>
+      <div class="control_button" id="del_courseButton" onclick="delCourse()">Delete Course +</div>
+      <div class="control_button" id="add_taButton" onclick="addTA()">Add TA +</div>
+      <div class="control_button" id="del_taButton" onclick="delTA()">Delete TA +</div>
+    </div>
+  <% } %>
+
+  <form action="/addCourse" method="post" id="grid_addition" style="display: none;">
+    <br>
+    <div>Add a Course Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value="" required>
+    <br>
+    <label for="department">Department/Program (Ex. ANTH)</label>
+    <input type="text" name="department" value="" required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <label for="prof_hours">Professsor's Office Hours (EX. T:8am-1pm, R:1pm-2pm)</label>
+    <input type="text" name="prof_hours" value=""required>
+    <br>
+    <label for="prof_office">Professsor's Office Location (EX. Olin-Sang 101)</label>
+    <input type="text" name="prof_office" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
+
+  <form action="/deleteCourse" method="post" id="del_course" style="display: none;">
+    <br>
+    <div>Delete a Course Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value=""required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
+
+  <form action="/addTA" method="post" id="add_ta" style="display: none;">
+    <br>
+    <div>Add a TA Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value=""required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <label for="ta_name">TA name (Ex. First Last)</label>
+    <input type="text" name="ta_name" value=""required>
+    <br>
+    <label for="ta_hours">TA hours (Ex. M:3pm-4pm)</label>
+    <input type="text" name="ta_hours" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
+
+  <form action="/delTA" method="post" id="del_ta" style="display: none;">
+    <br>
+    <div>Delete a TA Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value=""required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <label for="ta_name">TA name (Ex. First Last)</label>
+    <input type="text" name="ta_name" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
 
   <% if (isAdmin) {%>
-      Developer Tools:
-      <a href="/gridEditor"><div class="button">Edit Grid Data</div></a>
+    <hr>
   <% } %>
-  <div><a href="/pro">TEST</a></div>
+  
+  <form action="/searchGrid" method="post" id="searchGrid">
+    <div>Search the Grid!</div>
+    <div>
+        <label for="prof_name">Professor (Ex. First Last)</label>
+        <input type="text" name="prof_name" value="" required>
+        <br>
+        <label for="department">Department/Program (Ex. ANTH)</label>
+        <input type="text" name="department" value="" required>
+        <br>
+        <label for="courseid">Course ID (EX. ANTH_1A)</label>
+        <input type="text" name="courseid" value=""required>
+        <br>
+       <!-- <label for="ta_name">TA name (Ex. First Last)</label>
+        <input type="text" name="ta_name" value=""required>
+        <br>-->
+        <input class="button" type="submit" value="submit">
+    </div>
+  </form>
 
   <div style="text-align: center;">
-    Sort Grid By:
+    <div>Sort Grid By:</div>
     <div>
       <span class="control_button" id="Department_ASC"><a href="/sort/department/1">Department ASC</a></span>
       <span class="control_button" id="Department_DESC"><a href="/sort/department/-1">Department DESC</a></span>
@@ -27,24 +119,107 @@
     <div class="grid_header" style="grid-column: first/second;">Department</div>
     <div class="grid_header" style="grid-column: second/third;">Professor</div>
     <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
-    <div class = "grid_header" style="grid-column:fourth/fifth;">Action</div>
+    <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
 
     
-    <div class="grid_content">Computer Sciece</div>
+    <!--<div class="grid_content">Computer Sciece</div>
     <div class="grid_content"><a href="/test_prof_profile">Antonella Dillilo</a></div>
     <div class="grid_content"><a href="/test_class_schedule">Data Structures</a></div>
-    <div class="grid_content">Test</div>
+    <div class="grid_content">Test</div> -->
     
   
     <% grid_db.forEach(element => {%>
       <div class="grid_content"><%= element.department %></div>
-      <div class="grid_content"><%= element.prof_name %><div class="grid_content_hidden">Office: <%= element.prof_office %>, Hours: <%= element.prof_hours %></div></div>
+      <div class="grid_content"><%= element.prof_name %><div class="grid_content_hidden">Office: <%= element.prof_office %> <br> Hours: <%= element.prof_hours %></div></div>
       <div class="grid_content"><%= element.courseid %></div>
-      <div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>
+      <div class="grid_content">
+        <% element.tas.forEach(ta => {%>
+        <%= ta.ta_name %>:  <%= ta.ta_hours %>
+        <br>
+        <% }) %>
+      </div>
+      <!--<div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>-->
     <% }) %>
 
-
-
-
   </div>
+
 </div>
+
+<script>
+  //adding courses button
+  var openAdd = false;
+  function addCourse(){
+    if(openAdd == false){
+      closeButtons();
+      document.getElementById("grid_addition").style.display = "block";
+      document.getElementById("add_courseButton").innerHTML = "Add Course -";
+      openAdd = true;
+    }
+    else{
+      document.getElementById("grid_addition").style.display = "none";
+      document.getElementById("add_courseButton").innerHTML = "Add Course +";
+      openAdd = false;
+    }  
+  }
+
+  //delete course button
+  var openDelCourse = false;
+  function delCourse(){
+    if(openDelCourse == false){
+      closeButtons();
+      document.getElementById("del_course").style.display = "block";
+      document.getElementById("del_courseButton").innerHTML = "Delete Course -";
+      openDelCourse = true;
+    }
+    else{
+      document.getElementById("del_course").style.display = "none";
+      document.getElementById("del_courseButton").innerHTML = "Delete Course +";
+      openDelCourse = false;
+    }  
+  }
+
+  //adding TAs button
+  var openAddTA = false;
+  function addTA(){
+    if(openAddTA == false){
+      closeButtons();
+      document.getElementById("add_ta").style.display = "block";
+      document.getElementById("add_taButton").innerHTML = "Add TA -";
+      openAddTA = true;
+    }
+    else{
+      document.getElementById("add_ta").style.display = "none";
+      document.getElementById("add_taButton").innerHTML = "Add TA +";
+      openAddTA = false;
+    }  
+  }
+
+  //delete TAs button
+  var openDelTA = false;
+  function delTA(){
+    if(openDelTA == false){
+      closeButtons();
+      document.getElementById("del_ta").style.display = "block";
+      document.getElementById("del_taButton").innerHTML = "Delete TA -";
+      openDelTA = true;
+    }
+    else{
+      document.getElementById("del_ta").style.display = "none";
+      document.getElementById("del_taButton").innerHTML = "Delete TA +";
+      openDelTA = false;
+    }  
+  }
+
+  //closes all developer buttons when a new one is opened
+  function closeButtons(){
+    openAdd = true;
+    addCourse();
+    openDelCourse = true;
+    delCourse();
+    openAddTA = true;
+    addTA();
+    openDelTA = true;
+    delTA();
+  }
+  
+</script>
