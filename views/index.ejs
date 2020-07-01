@@ -14,6 +14,10 @@
     </div>
   <% } %>
 
+  <% if(isAdmin) {%>
+    <li><a href="/showContacts">See Contacts</a></li>
+  <% } %>
+
   <form action="/addCourse" method="post" id="grid_addition" style="display: none;">
     <br>
     <div>Add a Course Here!</div>
