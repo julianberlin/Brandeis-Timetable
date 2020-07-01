@@ -77,6 +77,28 @@
                   <% // }) %>
                 </div>
               <% //}) %>--> 
+    <div style="text-align: center;">Your Schedule</div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Class</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <%for (let i = 0; i < user.courseScheduled.length; i++) {%>
+                <tr>
+                    <td><%= user.courseScheduled[i] %></td>
+                    <td><%= user.dateScheduled[i] %></td>
+                    <td><%= user.timeScheduled[i] %></td>
+                </tr>
+            <%}%>
+            </tbody>
+
+        </table>
     </div>
 </div>
 

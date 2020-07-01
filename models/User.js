@@ -9,6 +9,9 @@ var userSchema = Schema( {
   googlename: String,
   googleemail: String,
   gridids: [ObjectId]
+  courseScheduled:[String],
+  dateScheduled: [String],
+  timeScheduled: [String]
 } );
 
 module.exports = mongoose.model('UserT4', userSchema);
