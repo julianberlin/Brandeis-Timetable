@@ -1209,6 +1209,40 @@ app.post("/pro/add", (req, res, next) => {
     res.render('success_schedule');
 });
 
+
+app.get('/releaseSchedule/:id', async(req, res) => {
+    //TODO: BUG!!!
+    let num = req.params.id;
+    //console.log(num);
+    let theUser = await User.findOne({_id : req.user._id});
+    //console.log(theUser.courseScheduled);
+    let theCourseArray = theUser.courseScheduled.slice(0, num);
+    theCourseArray.push(theUser.courseScheduled.slice(num+1));
+    let theDateArray = theUser.dateScheduled.slice(0, num);
+    theDateArray.push(theUser.dateScheduled.slice(num+1));
+    let theTimeArray = theUser.timeScheduled.slice(0, num);
+    theTimeArray.push(theUser.timeScheduled.slice(num+1));
+
+
+    console.log(theCourseArray);
+    console.log(theDateArray);
+    console.log(theTimeArray);
+
+
+
+    User.findOneAndUpdate({_id: req.user._id}, {
+        $set : {courseScheduled: theCourseArray}
+    }, {new: true});
+    User.findOneAndUpdate({_id: req.user._id}, {
+        $set : {dateScheduled: theDateArray}
+    }, {new: true});
+    User.findOneAndUpdate({_id: req.user._id}, {
+        $set : {timeScheduled: theTimeArray}
+    }, {new: true});
+    res.redirect('../profile');
+});
+
+
 app.get('/updateCourse', async(req, res) => {
     res.locals.grid_db = await Grid.find().sort({department:1});
     res.render("updateCourse");

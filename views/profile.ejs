@@ -34,6 +34,7 @@
                 <th>Class</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Finished Check</th>
             </tr>
             </thead>
 
@@ -43,6 +44,7 @@
                     <td><%= user.courseScheduled[i] %></td>
                     <td><%= user.dateScheduled[i] %></td>
                     <td><%= user.timeScheduled[i] %></td>
+                    <td><a href = "./releaseSchedule/<%=i%>">Check</a></td>
                 </tr>
             <%}%>
             </tbody>
