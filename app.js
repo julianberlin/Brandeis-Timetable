@@ -1216,29 +1216,56 @@ app.get('/releaseSchedule/:id', async(req, res) => {
     //console.log(num);
     let theUser = await User.findOne({_id : req.user._id});
     //console.log(theUser.courseScheduled);
-    let theCourseArray = theUser.courseScheduled.slice(0, num);
-    theCourseArray.push(theUser.courseScheduled.slice(num+1));
-    let theDateArray = theUser.dateScheduled.slice(0, num);
-    theDateArray.push(theUser.dateScheduled.slice(num+1));
-    let theTimeArray = theUser.timeScheduled.slice(0, num);
-    theTimeArray.push(theUser.timeScheduled.slice(num+1));
+    let theCourseArray = theUser.courseScheduled;
+    theCourseArray.splice(num , 1);
+    //theCourseArray.push(theUser.courseScheduled.slice(num));
+    let theDateArray = theUser.dateScheduled;
+    theDateArray.splice(num, 1);
+    //theDateArray.push(theUser.dateScheduled.slice(num));
+    let theTimeArray = theUser.timeScheduled;
+    theTimeArray.splice(num, 1);
+    //theTimeArray.push(theUser.timeScheduled.slice(num));
 
 
     console.log(theCourseArray);
     console.log(theDateArray);
     console.log(theTimeArray);
 
-
-
+    console.log(req.user._id);
     User.findOneAndUpdate({_id: req.user._id}, {
         $set : {courseScheduled: theCourseArray}
-    }, {new: true});
+    }, {new: true}, (err, doc) => {
+        if(!err){
+
+        }else{
+            console.log(err);
+        }
+    });
     User.findOneAndUpdate({_id: req.user._id}, {
         $set : {dateScheduled: theDateArray}
-    }, {new: true});
+    }, {new: true}, (err, doc) => {
+        if(!err){
+
+        }else{
+            console.log(err);
+        }
+    });
     User.findOneAndUpdate({_id: req.user._id}, {
         $set : {timeScheduled: theTimeArray}
-    }, {new: true});
+    }, {new: true}, (err, doc) => {
+        if(!err){
+
+        }else{
+            console.log(err);
+        }
+    });
+
+    console.log('------------');
+    let newUser = await User.findOne({_id : req.user._id});
+    console.log(newUser.courseScheduled);
+    console.log(newUser.dateScheduled);
+    console.log(newUser.timeScheduled);
+
     res.redirect('../profile');
 });
 
