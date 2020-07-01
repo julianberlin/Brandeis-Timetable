@@ -257,7 +257,13 @@
         <br>
         <% }) %>
       </div>
-      <div class = "grid_content"><a href="./pro/<%= element._id%>">Schedule with this class</a></div>
+      <div class = "grid_content">
+        <% if(!loggedIn){ %>
+          <a href="/auth/google">Schedule with this class</a>
+       <% } else {%>
+        <a href="./pro/<%= element._id%>">Schedule with this class</a>
+        <% };%>
+      </div>
 
       <!--<div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>-->
     <% }) %>
