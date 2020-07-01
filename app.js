@@ -51,7 +51,6 @@ app.get("/andrew", homeController.showAndrew);
 app.get("/julian",homeController.showJulian);
 app.get("/test_prof_profile",homeController.showTestProf);
 app.get("/test_class_schedule",homeController.showTestSchedule);
-app.get("/profile", homeController.showProfile);
 app.get("/pro", homeController.showSchedule);
 app.get("/admin", homeController.showAdmin);
 app.get("/thanks", homeController.showThanks);
@@ -228,6 +227,21 @@ app.delete("/admin/:id/delete", homeController.removeAdmin);
       next(e)
     }
   });
+
+  //generating profile and user's classes
+  app.get("/profile",
+  async(req, res, next) => {
+    try{
+      //res.local.myClasses = await Grid.find({_id:req.user.gridids})
+      res.render("profile");
+    }
+    catch(e) {
+      console.log("Error:"+e);
+      next(e)
+    }
+  });
+
+  //app.post
 
 
 
