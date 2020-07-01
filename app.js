@@ -65,6 +65,7 @@ app.get("/pro/:id", (req, res) => {
 
 
 app.get("/admin", homeController.showAdmin);
+app.get("/thanks", homeController.showThanks);
 //app.post("/contact", homeController.postedSignUpForm);
 
 const Contact=require("./models/Contact");
@@ -89,7 +90,7 @@ app.post('/contact',
       let message = req.body.message
       let newContact = new Contact({name:name, email:email, message:message})
       await newContact.save()
-      res.redirect('/showContacts')
+      res.redirect('/thanks')
     }
     catch(e) {
       next(e)

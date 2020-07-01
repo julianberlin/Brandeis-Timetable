@@ -54,6 +54,10 @@ exports.showSchedule = (req, res) =>{
   res.render("pro");
 }
 
+exports.showThanks=(req,res)=> {
+  res.render("thanks");
+}
+
 exports.addAdmin = async(req,res,next) =>{
   try {
     await AdminList.create({googleemail: req.body.email})
