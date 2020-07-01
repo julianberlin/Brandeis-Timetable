@@ -46,8 +46,16 @@ exports.showTestSchedule = (req,res) => {
   res.render("test_class_schedule");
 }
 
-exports.showProfile = (req, res) => {
-  res.render("profile");
+//const Grid=require("./models/Grid");
+exports.showProfile = async(req, res, next) => {
+  try{
+    //res.local.myClasses = await Grid.find({_id:req.user.gridids})
+    res.render("profile");
+  }
+  catch(e) {
+    console.log("Error:"+e);
+    next(e)
+  }
 }
 
 exports.showSchedule = (req, res) =>{
