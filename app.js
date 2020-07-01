@@ -3,6 +3,7 @@
 // connect express, controllers, ejs
 const express = require("express"),
   app = express(),
+  methodOverride = require("method-override"),
   homeController = require("./controllers/homeController"),
   errorController = require("./controllers/errorController"),
   layouts = require("express-ejs-layouts");
@@ -34,6 +35,11 @@ app.use(express.json());
 app.use(layouts);
 app.use(express.static("public"));
 
+app.use(
+  methodOverride("_method", {
+    methods: ["POST", "GET"]
+  })
+);
 
 // render every pages
 app.get("/about",homeController.showAbout);
@@ -47,24 +53,8 @@ app.get("/test_prof_profile",homeController.showTestProf);
 app.get("/test_class_schedule",homeController.showTestSchedule);
 app.get("/profile", homeController.showProfile);
 app.get("/pro", homeController.showSchedule);
+app.get("/admin", homeController.showAdmin);
 //app.post("/contact", homeController.postedSignUpForm);
-
-/*
-app.get("/addAdmins", async(req,res,next) => {
-  try{
-    await Admin.deleteMany({});
-    let user = new Admin({googleemail:'julianb@brandeis.edu'});
-    await user.save();
-    user = new Admin({googleemail:'chena@brandeis.edu'});
-    await user.save();
-    user = new Admin({googleemail:'tianqizhao@brandeis.edu'});
-    await user.save();
-    res.json("success");
-  }
-  catch(e){
-    next(e);
-  }
-});*/
 
 const Contact=require("./models/Contact");
 app.get("/showContacts",
@@ -94,6 +84,9 @@ app.post('/contact',
       next(e)
     }
   });
+
+app.post('/admin', homeController.addAdmin);
+app.delete("/admin/:id/delete", homeController.removeAdmin);
 
   const Grid=require("./models/Grid");
   app.get("/",

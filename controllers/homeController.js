@@ -1,5 +1,7 @@
 "use strict";
 
+const AdminList = require("../models/Admin");
+
 exports.showCourses = (req, res) => {
   res.render("courses", {
     offeredCourses: courses,
@@ -51,3 +53,37 @@ exports.showProfile = (req, res) => {
 exports.showSchedule = (req, res) =>{
   res.render("pro");
 }
+
+exports.addAdmin = async(req,res,next) =>{
+  try {
+    await AdminList.create({googleemail: req.body.email})
+    res.redirect('/admin')
+  }
+  catch(e) {
+    next(e)
+  }
+};
+
+exports.removeAdmin = async(req,res,next) => {
+  AdminList.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/admin')
+    })
+    .catch(error => {
+      console.log(`Error deleting admin by email: ${error.message}`);
+      next();
+    });
+}
+
+exports.showAdmin = (req, res, next) => {
+  AdminList.find({})
+    .exec()
+    .then(admins => {
+      res.render("admin", {
+        admins: admins
+      });
+    })
+    .catch(error => {
+      next(error);
+    });
+};
