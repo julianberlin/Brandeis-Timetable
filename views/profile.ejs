@@ -26,11 +26,27 @@
             </table>
         </div>
     </div>
-    <div style="text-align: center;">Your Courses</div>
-    <div class="grid_container">
-            <div class="grid_header" style="grid-column: first/second;">Department</div>
-            <div class="grid_header" style="grid-column: second/third;">Professor</div>
-            <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
-            <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
+    <div style="text-align: center;">Your Schedule</div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Class</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <%for (let i = 0; i < user.courseScheduled.length; i++) {%>
+                <tr>
+                    <td><%= user.courseScheduled[i] %></td>
+                    <td><%= user.dateScheduled[i] %></td>
+                    <td><%= user.timeScheduled[i] %></td>
+                </tr>
+            <%}%>
+            </tbody>
+
+        </table>
     </div>
 </div>

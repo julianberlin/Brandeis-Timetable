@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="grid_container">
+        <div class="grid_header" style="grid-column: first/second;">Department</div>
+        <div class="grid_header" style="grid-column: second/third;">Professor</div>
+        <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
+        <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
+        <div class = "grid_header" style="grid-column: fifth/sixth;">Update</div>
+
+
+        <!--<div class="grid_content">Computer Sciece</div>
+        <div class="grid_content"><a href="/test_prof_profile">Antonella Dillilo</a></div>
+        <div class="grid_content"><a href="/test_class_schedule">Data Structures</a></div>
+        <div class="grid_content">Test</div> -->
+
+
+        <% grid_db.forEach(element => {%>
+            <div class="grid_content"><%= element.department %></div>
+            <div class="grid_content"><%= element.prof_name %><div class="grid_content_hidden">Office: <%= element.prof_office %> <br> Hours: <%= element.prof_hours %></div></div>
+            <div class="grid_content"><%= element.courseid %></div>
+            <div class="grid_content">
+                <% element.tas.forEach(ta => {%>
+                    <%= ta.ta_name %>:  <%= ta.ta_hours %>
+                    <br>
+                <% }) %>
+            </div>
+            <div class = "grid_content"><a href="./updateCourse/<%= element._id%>">Update this class</a></div>
+
+            <!--<div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>-->
+        <% }) %>
+
+    </div>
+</div>
