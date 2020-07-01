@@ -8,7 +8,7 @@ var userSchema = Schema( {
   googletoken: String,
   googlename: String,
   googleemail: String,
-  gridids: [ObjectId]
+  gridids: [ObjectId],
   courseScheduled:[String],
   dateScheduled: [String],
   timeScheduled: [String]
