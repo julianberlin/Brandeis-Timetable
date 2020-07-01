@@ -134,12 +134,23 @@ app.delete("/admin/:id/delete", homeController.removeAdmin);
  app.post("/searchGrid",
  async(req, res) => {
    try{
+   if(req.body.prof_name != "" && req.body.courseid != ""){
     let prof_name = req.body.prof_name
     let courseid = req.body.courseid
-    //let ta_name = req.body.ta_name
     res.locals.grid_db = await Grid.find({prof_name:prof_name,courseid:courseid}).sort({department:1});
-    console.log("test")
     res.render('index')
+   }
+   else if(req.body.prof_name != ""){
+    let prof_name = req.body.prof_name
+    res.locals.grid_db = await Grid.find({prof_name:prof_name}).sort({department:1});
+    res.render('index')
+   }
+   else if(req.body.courseid != ""){
+    let courseid = req.body.courseid
+    res.locals.grid_db = await Grid.find({courseid:courseid}).sort({department:1});
+    res.render('index')
+  }
+
    }
    catch(e) {
      console.log("Error:"+e);
