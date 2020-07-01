@@ -10,6 +10,7 @@
       <div class="control_button" id="del_courseButton" onclick="delCourse()">Delete Course +</div>
       <div class="control_button" id="add_taButton" onclick="addTA()">Add TA +</div>
       <div class="control_button" id="del_taButton" onclick="delTA()">Delete TA +</div>
+      <a href="./updateCourse"><button class="control_button">Update course +</button></a>
     </div>
   <% } %>
 
@@ -34,36 +35,6 @@
     <br>
     <label for="prof_office">Professsor's Office Location (EX. Olin-Sang 101)</label>
     <input type="text" name="prof_office" value=""required>
-    <br>
-    <input class="button" type="submit" value="submit">
-  </form>
-
-  <form action="/deleteCourse" method="post" id="del_course" style="display: none;">
-    <br>
-    <div>Delete a Course Here!</div>
-    <label for="prof_name">Professor (Ex. First Last)</label>
-    <input type="text" name="prof_name" value=""required>
-    <br>
-    <label for="courseid">Course ID (EX. ANTH_1A)</label>
-    <input type="text" name="courseid" value=""required>
-    <br>
-    <input class="button" type="submit" value="submit">
-  </form>
-
-  <form action="/addTA" method="post" id="add_ta" style="display: none;">
-    <br>
-    <div>Add a TA Here!</div>
-    <label for="prof_name">Professor (Ex. First Last)</label>
-    <input type="text" name="prof_name" value=""required>
-    <br>
-    <label for="courseid">Course ID (EX. ANTH_1A)</label>
-    <input type="text" name="courseid" value=""required>
-    <br>
-    <label for="ta_name">TA name (Ex. First Last)</label>
-    <input type="text" name="ta_name" value=""required>
-    <br>
-    <label for="ta_hours">TA hours (Ex. M:3pm-4pm)</label>
-    <input type="text" name="ta_hours" value=""required>
     <br>
     <label for="Monday9to10">Availbility of the Office Hour from 9 to 10, Monday (0 is not available, 1 is available)</label>
     <input type="Number" name="Monday9to10" value=""required>
@@ -188,6 +159,36 @@
     <input class="button" type="submit" value="submit">
   </form>
 
+  <form action="/deleteCourse" method="post" id="del_course" style="display: none;">
+    <br>
+    <div>Delete a Course Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value=""required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
+
+  <form action="/addTA" method="post" id="add_ta" style="display: none;">
+    <br>
+    <div>Add a TA Here!</div>
+    <label for="prof_name">Professor (Ex. First Last)</label>
+    <input type="text" name="prof_name" value=""required>
+    <br>
+    <label for="courseid">Course ID (EX. ANTH_1A)</label>
+    <input type="text" name="courseid" value=""required>
+    <br>
+    <label for="ta_name">TA name (Ex. First Last)</label>
+    <input type="text" name="ta_name" value=""required>
+    <br>
+    <label for="ta_hours">TA hours (Ex. M:3pm-4pm)</label>
+    <input type="text" name="ta_hours" value=""required>
+    <br>
+    <input class="button" type="submit" value="submit">
+  </form>
+
   <form action="/delTA" method="post" id="del_ta" style="display: none;">
     <br>
     <div>Delete a TA Here!</div>
@@ -241,6 +242,7 @@
     <div class="grid_header" style="grid-column: second/third;">Professor</div>
     <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
     <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
+    <div class = "grid_header" style="grid-column: fifth/sixth;">Schedule</div>
 
 
     <!--<div class="grid_content">Computer Sciece</div>
@@ -259,6 +261,9 @@
         <br>
         <% }) %>
       </div>
+      <div class = "grid_content"><a href="./pro/<%= element._id%>">Schedule with this class</a></div>
+
+      <!--<div class="grid_content"><a href="pro"> Schedule w/ Professor</a></div>-->
     <% }) %>
 
   </div>

@@ -1,3 +1,300 @@
 <div class = "container">
-    <h1>Yeah</h1>
+    <h1>Course Name: <%=individualGrid.courseid%></h1>
+    <h1>Course Instructor: <%= individualGrid.prof_name%></h1>
+    <hr>
+    <p>You can schedule an office hour to meet with the professor or TAs: </p>
+    <form action = '/pro/add' method="post" autocomplete="off">
+        <input type="hidden" name = "_id" value="<%=individualGrid._id%>">
+        <input type="hidden" name = "courseid" value="<%=individualGrid.courseid%>">
+        <input type="hidden" name = "userID" value="<%=user._id%>">
+        <label>Monday from 9am to 10am</label>
+        <% if (individualGrid.Monday9to10 == 0) {%>
+        <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday9to10 == 1) {%>
+        <input type="text" name="Monday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 10am to 11am</label>
+        <% if (individualGrid.Monday10to11 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday10to11 == 1) {%>
+            <input type="text" name="Monday10to11" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 11am to 12pm</label>
+        <% if (individualGrid.Monday11to12 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday11to12 == 1) {%>
+            <input type="text" name="Monday11to12" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 12pm to 1pm</label>
+        <% if (individualGrid.Monday12to13 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday12to13 == 1) {%>
+            <input type="text" name="Monday12to13" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 1pm to 2pm</label>
+        <% if (individualGrid.Monday13to14 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday13to14 == 1) {%>
+            <input type="text" name="Monday13to14" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 2pm to 3pm</label>
+        <% if (individualGrid.Monday14to15 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday14to15 == 1) {%>
+            <input type="text" name="Monday14to15" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 3pm to 4pm</label>
+        <% if (individualGrid.Monday15to16 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday15to16 == 1) {%>
+            <input type="text" name="Monday15to16" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Monday from 4pm to 5pm</label>
+        <% if (individualGrid.Monday16to17 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Monday16to17 == 1) {%>
+            <input type="text" name="Monday16to17" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <hr>
+        <label>Tuesday from 9am to 10am</label>
+        <% if (individualGrid.Tuesday9to10 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday9to10 == 1) {%>
+            <input type="text" name="Tuesday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 10am to 11am</label>
+        <% if (individualGrid.Tuesday10to11 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday10to11 == 1) {%>
+            <input type="text" name="Tuesday10to11" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 11am to 12pm</label>
+        <% if (individualGrid.Tuesday11to12 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday11to12 == 1) {%>
+            <input type="text" name="Tuesday11to12" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 12pm to 1pm</label>
+        <% if (individualGrid.Tuesday12to13 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday12to13 == 1) {%>
+            <input type="text" name="Tuesday12to13" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 1pm to 2pm</label>
+        <% if (individualGrid.Tuesday13to14 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday13to14 == 1) {%>
+            <input type="text" name="Tuesday13to14" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 2pm to 3pm</label>
+        <% if (individualGrid.Tuesday14to15 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday14to15 == 1) {%>
+            <input type="text" name="Tuesday14to15" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 3pm to 4pm</label>
+        <% if (individualGrid.Tuesday15to16 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday15to16 == 1) {%>
+            <input type="text" name="Tuesday15to16" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Tuesday from 4pm to 5pm</label>
+        <% if (individualGrid.Tuesday16to17 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Tuesday16to17 == 1) {%>
+            <input type="text" name="Tuesday16to17" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <hr>
+        <label>Wednesday from 9am to 10am</label>
+        <% if (individualGrid.Wednesday9to10 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday9to10 == 1) {%>
+            <input type="text" name="Wednesday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 10am to 11am</label>
+        <% if (individualGrid.Wednesday10to11 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday10to11 == 1) {%>
+            <input type="text" name="Wednesday10to11" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 11am to 12pm</label>
+        <% if (individualGrid.Wednesday11to12 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday11to12 == 1) {%>
+            <input type="text" name="Wednesday11to12" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 12pm to 1pm</label>
+        <% if (individualGrid.Wednesday12to13 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday12to13 == 1) {%>
+            <input type="text" name="Wednesday12to13" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 1pm to 2pm</label>
+        <% if (individualGrid.Wednesday13to14 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday13to14 == 1) {%>
+            <input type="text" name="Wednesday13to14" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 2pm to 3pm</label>
+        <% if (individualGrid.Wednesday14to15 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday14to15 == 1) {%>
+            <input type="text" name="Wednesday14to15" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 3pm to 4pm</label>
+        <% if (individualGrid.Wednesday15to16 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday15to16 == 1) {%>
+            <input type="text" name="Wednesday15to16" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Wednesday from 4pm to 5pm</label>
+        <% if (individualGrid.Wednesday16to17 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Wednesday16to17 == 1) {%>
+            <input type="text" name="Wednesday16to17" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <hr>
+        <label>Thursday from 9am to 10am</label>
+        <% if (individualGrid.Thursday9to10 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday9to10 == 1) {%>
+            <input type="text" name="Thursday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 10am to 11am</label>
+        <% if (individualGrid.Thursday10to11 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday10to11 == 1) {%>
+            <input type="text" name="Thursday10to11" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 11am to 12pm</label>
+        <% if (individualGrid.Thursday11to12 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday11to12 == 1) {%>
+            <input type="text" name="Thursday11to12" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 12pm to 1pm</label>
+        <% if (individualGrid.Thursday12to13 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday12to13 == 1) {%>
+            <input type="text" name="Thursday12to13" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 1pm to 2pm</label>
+        <% if (individualGrid.Thursday13to14 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday13to14 == 1) {%>
+            <input type="text" name="Thursday13to14" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 2pm to 3pm</label>
+        <% if (individualGrid.Thursday14to15 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday14to15 == 1) {%>
+            <input type="text" name="Thursday14to15" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 3pm to 4pm</label>
+        <% if (individualGrid.Thursday15to16 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday15to16 == 1) {%>
+            <input type="text" name="Thursday15to16" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Thursday from 4pm to 5pm</label>
+        <% if (individualGrid.Thursday16to17 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Thursday16to17 == 1) {%>
+            <input type="text" name="Thursday16to17" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <hr>
+        <label>Friday from 9am to 10am</label>
+        <% if (individualGrid.Friday9to10 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday9to10 == 1) {%>
+            <input type="text" name="Friday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 10am to 11am</label>
+        <% if (individualGrid.Friday10to11 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday10to11 == 1) {%>
+            <input type="text" name="Friday10to11" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 11am to 12pm</label>
+        <% if (individualGrid.Friday11to12 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday11to12 == 1) {%>
+            <input type="text" name="Monday9to10" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 12pm to 1pm</label>
+        <% if (individualGrid.Friday12to13 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday12to13 == 1) {%>
+            <input type="text" name="Friday12to13" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 1pm to 2pm</label>
+        <% if (individualGrid.Friday13to14 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday13to14 == 1) {%>
+            <input type="text" name="Friday13to14" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 2pm to 3pm</label>
+        <% if (individualGrid.Friday14to15 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday14to15 == 1) {%>
+            <input type="text" name="Friday14to15" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 3pm to 4pm</label>
+        <% if (individualGrid.Friday15to16 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday15to16 == 1) {%>
+            <input type="text" name="Friday15to16" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <label>Friday from 4pm to 5pm</label>
+        <% if (individualGrid.Friday16to17 == 0) {%>
+            <button disabled>Not Available</button>
+        <%}else if (individualGrid.Friday16to17 == 1) {%>
+            <input type="text" name="Friday16to17" placeholder="Type YES to schedule!">
+        <%}%>
+        <br>
+        <hr>
+        <button type = "submit" style="margin-bottom: 50px">Confirm Your Schedule</button>
+
+
+
+    </form>
 </div>

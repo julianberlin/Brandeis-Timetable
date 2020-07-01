@@ -1,0 +1,143 @@
+<div class = "container">
+    <form action="/updateSpecificClass/update" method="post">
+        <input type="hidden" name="_id" value="<%=specificClass._id%>">
+        <br>
+        <div>Update a Course Here!</div>
+        <label for="prof_name">Professor (Ex. First Last)</label>
+        <input type="text" name="prof_name" value="<%=specificClass.prof_name%>" required>
+        <br>
+        <label for="department">Department/Program (Ex. ANTH)</label>
+        <input type="text" name="department" value="<%=specificClass.department%>" required>
+        <br>
+        <label for="courseid">Course ID (EX. ANTH_1A)</label>
+        <input type="text" name="courseid" value="<%=specificClass.courseid%>"required>
+        <br>
+        <label for="prof_hours">Professsor's Office Hours (EX. T:8am-1pm, R:1pm-2pm)</label>
+        <input type="text" name="prof_hours" value="<%=specificClass.prof_hours%>"required>
+        <br>
+        <label for="prof_office">Professsor's Office Location (EX. Olin-Sang 101)</label>
+        <input type="text" name="prof_office" value="<%=specificClass.prof_office%>"required>
+        <br>
+        <label for="Monday9to10">Availbility of the Office Hour from 9 to 10, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday9to10" value="<%=specificClass.Monday9to10%>"required>
+        <br>
+        <label for="Monday10to11">Availbility of the Office Hour from 10 to 11, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday10to11" value="<%=specificClass.Monday10to11%>"required>
+        <br>
+        <label for="Monday11to12">Availbility of the Office Hour from 11 to 12, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday11to12" value="<%=specificClass.Monday11to12%>"required>
+        <br>
+        <label for="Monday12to13">Availbility of the Office Hour from 12 to 13, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday12to13" value="<%=specificClass.Monday12to13%>"required>
+        <br>
+        <label for="Monday13to14">Availbility of the Office Hour from 13 to 14, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday13to14" value="<%=specificClass.Monday13to14%>"required>
+        <br>
+        <label for="Monday14to15">Availbility of the Office Hour from 14 to 15, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday14to15" value="<%=specificClass.Monday14to15%>"required>
+        <br>
+        <label for="Monday15to16">Availbility of the Office Hour from 15 to 16, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday15to16" value="<%=specificClass.Monday15to16%>"required>
+        <br>
+        <label for="Monday16to17">Availbility of the Office Hour from 16 to 17, Monday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Monday16to17" value="<%=specificClass.Monday16to17%>"required>
+        <br>
+        <label for="Tuesday9to10">Availbility of the Office Hour from 9 to 10, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday9to10" value="<%=specificClass.Tuesday9to10%>"required>
+        <br>
+        <label for="Tuesday10to11">Availbility of the Office Hour from 10 to 11, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday10to11" value="<%=specificClass.Tuesday10to11%>"required>
+        <br>
+        <label for="Tuesday11to12">Availbility of the Office Hour from 11 to 12, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday11to12" value="<%=specificClass.Tuesday11to12%>"required>
+        <br>
+        <label for="Tuesday12to13">Availbility of the Office Hour from 12 to 13, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday12to13" value="<%=specificClass.Tuesday12to13%>"required>
+        <br>
+        <label for="Tuesday13to14">Availbility of the Office Hour from 13 to 14, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday13to14" value="<%=specificClass.Tuesday13to14%>"required>
+        <br>
+        <label for="Tuesday14to15">Availbility of the Office Hour from 14 to 15, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday14to15" value="<%=specificClass.Tuesday14to15%>"required>
+        <br>
+        <label for="Tuesday15to16">Availbility of the Office Hour from 15 to 16, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday15to16" value="<%=specificClass.Tuesday15to16%>"required>
+        <br>
+        <label for="Tuesday16to17">Availbility of the Office Hour from 16 to 17, Tuesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Tuesday16to17" value="<%=specificClass.Tuesday16to17%>"required>
+        <br>
+        <label for="Wednesday9to10">Availbility of the Office Hour from 9 to 10, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday9to10" value="<%=specificClass.Wednesday9to10%>"required>
+        <br>
+        <label for="Wednesday10to11">Availbility of the Office Hour from 10 to 11, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday10to11" value="<%=specificClass.Wednesday10to11%>"required>
+        <br>
+        <label for="Wednesday11to12">Availbility of the Office Hour from 11 to 12, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday11to12" value="<%=specificClass.Wednesday11to12%>"required>
+        <br>
+        <label for="Wednesday12to13">Availbility of the Office Hour from 12 to 13, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday12to13" value="<%=specificClass.Wednesday12to13%>"required>
+        <br>
+        <label for="Wednesday13to14">Availbility of the Office Hour from 13 to 14, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday13to14" value="<%=specificClass.Wednesday13to14%>"required>
+        <br>
+        <label for="Wednesday14to15">Availbility of the Office Hour from 14 to 15, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday14to15" value="<%=specificClass.Wednesday14to15%>"required>
+        <br>
+        <label for="Wednesday15to16">Availbility of the Office Hour from 15 to 16, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday15to16" value="<%=specificClass.Wednesday15to16%>"required>
+        <br>
+        <label for="Wednesday16to17">Availbility of the Office Hour from 16 to 17, Wednesday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Wednesday16to17" value="<%=specificClass.Wednesday16to17%>"required>
+        <br>
+        <label for="Thursday9to10">Availbility of the Office Hour from 9 to 10, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday9to10" value="<%=specificClass.Thursday9to10%>"required>
+        <br>
+        <label for="Thursday10to11">Availbility of the Office Hour from 10 to 11, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday10to11" value="<%=specificClass.Thursday10to11%>"required>
+        <br>
+        <label for="Thursday11to12">Availbility of the Office Hour from 11 to 12, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday11to12" value="<%=specificClass.Thursday11to12%>"required>
+        <br>
+        <label for="Thursday12to13">Availbility of the Office Hour from 12 to 13, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday12to13" value="<%=specificClass.Thursday12to13%>"required>
+        <br>
+        <label for="Thursday13to14">Availbility of the Office Hour from 13 to 14, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday13to14" value="<%=specificClass.Thursday13to14%>"required>
+        <br>
+        <label for="Thursday14to15">Availbility of the Office Hour from 14 to 15, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday14to15" value="<%=specificClass.Thursday14to15%>"required>
+        <br>
+        <label for="Thursday15to16">Availbility of the Office Hour from 15 to 16, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday15to16" value="<%=specificClass.Thursday15to16%>"required>
+        <br>
+        <label for="Thursday16to17">Availbility of the Office Hour from 16 to 17, Thursday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Thursday16to17" value="<%=specificClass.Thursday16to17%>"required>
+        <br>
+        <label for="Friday9to10">Availbility of the Office Hour from 9 to 10, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday9to10" value="<%=specificClass.Friday9to10%>"required>
+        <br>
+        <label for="Friday10to11">Availbility of the Office Hour from 10 to 11, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday10to11" value="<%=specificClass.Friday10to11%>"required>
+        <br>
+        <label for="Friday11to12">Availbility of the Office Hour from 11 to 12, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday11to12" value="<%=specificClass.Friday11to12%>"required>
+        <br>
+        <label for="Friday12to13">Availbility of the Office Hour from 12 to 13, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday12to13" value="<%=specificClass.Friday12to13%>"required>
+        <br>
+        <label for="Friday13to14">Availbility of the Office Hour from 13 to 14, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday13to14" value="<%=specificClass.Friday13to14%>"required>
+        <br>
+        <label for="Friday14to15">Availbility of the Office Hour from 14 to 15, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday14to15" value="<%=specificClass.Friday14to15%>"required>
+        <br>
+        <label for="Friday15to16">Availbility of the Office Hour from 15 to 16, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday15to16" value="<%=specificClass.Friday15to16%>"required>
+        <br>
+        <label for="Friday16to17">Availbility of the Office Hour from 16 to 17, Friday (0 is not available, 1 is available)</label>
+        <input type="Number" name="Friday16to17" value="<%=specificClass.Friday16to17%>"required>
+        <br>
+        <input class="button" type="submit" value="submit">
+    </form>
+</div>

@@ -7,6 +7,9 @@ var userSchema = Schema( {
   googletoken: String,
   googlename: String,
   googleemail: String,
+  courseScheduled:[String],
+  dateScheduled: [String],
+  timeScheduled: [String]
 } );
 
 module.exports = mongoose.model('UserT4', userSchema);
