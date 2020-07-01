@@ -31,6 +31,9 @@ exports.postedSignUpForm = (req, res) => {
 exports.showAbout = (req, res) => {
   res.render("about");
 };
+exports.showProfile = (req,res) => {
+  res.render("profile");
+};
 
 exports.showAndrew = (req,res) => {
   res.render("andrew");
@@ -44,10 +47,6 @@ exports.showTestProf = (req,res) => {
 }
 exports.showTestSchedule = (req,res) => {
   res.render("test_class_schedule");
-}
-
-exports.showProfile = (req, res) => {
-  res.render("profile");
 }
 
 exports.showSchedule = (req, res) =>{

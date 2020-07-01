@@ -26,7 +26,59 @@
             </table>
         </div>
     </div>
-    <div style="text-align: center;">Your Schedule</div>
+
+    <!-- Control Center for My Courses-->
+    <div style="text-align: center; color: rgb(0, 46, 108); font-size: 22pt; text-decoration: underline;">Your Courses</div>
+    <div style="text-align: center;">
+        <div class="control_button" onclick="addCourse()" id="add_courseButton">Add Course +</div>
+        <div class="control_button" onclick="delCourse()" id="del_courseButton">Delete Course +</div>
+    </div>
+
+    <form action="/addMyCourse" method="post" id="addMyCourse" style="display: none;">
+        <br>
+        <div>Add a Course Here!</div>
+        <label for="prof_name">Professor (Ex. First Last)</label>
+        <input type="text" name="prof_name" value=""required>
+        <br>
+        <label for="courseid">Course ID (EX. ANTH_1A)</label>
+        <input type="text" name="courseid" value=""required>
+        <br>
+        <input class="button" type="submit" value="submit">
+      </form>
+
+    <form action="/delMyCourse" method="post" id="delMyCourse" style="display: none;">
+        <br>
+        <div>Delete a Course Here!</div>
+        <label for="prof_name">Professor (Ex. First Last)</label>
+        <input type="text" name="prof_name" value=""required>
+        <br>
+        <label for="courseid">Course ID (EX. ANTH_1A)</label>
+        <input type="text" name="courseid" value=""required>
+        <br>
+        <input class="button" type="submit" value="submit">
+    </form>
+
+    <!-- My Courses Grid-->
+    <br>
+    <div class="grid_container">
+            <div class="grid_header" style="grid-column: first/second;">Department</div>
+            <div class="grid_header" style="grid-column: second/third;">Professor</div>
+            <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
+            <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
+
+            <!-- <% // myClasses.forEach(element => {%>
+                <div class="grid_content"><%= // element.department %></div>
+                <div class="grid_content"><%=// element.prof_name %><div class="grid_content_hidden">Office: <%= // element.prof_office %> <br> Hours: <%= // element.prof_hours %></div></div>
+                <div class="grid_content"><%= //element.courseid %> </div>
+                <div class="grid_content">
+                  <% // element.tas.forEach(ta => {%>
+                  <%= //ta.ta_name %>:  <%= //ta.ta_hours %>
+                  <br>
+                  <% // }) %>
+                </div>
+              <% //}) %>--> 
+    </div>
+    <div style="text-align: center; color: rgb(0, 46, 108); font-size: 22pt; text-decoration: underline;">Your Schedule</div>
     <div class="row">
         <table class="table table-striped">
             <thead>
@@ -52,3 +104,44 @@
         </table>
     </div>
 </div>
+
+<script>
+
+var openAdd = false;
+  function addCourse(){
+    if(openAdd == false){
+      closeButtons();
+      document.getElementById("addMyCourse").style.display = "block";
+      document.getElementById("add_courseButton").innerHTML = "Add Course -";
+      openAdd = true;
+    }
+    else{
+      document.getElementById("addMyCourse").style.display = "none";
+      document.getElementById("add_courseButton").innerHTML = "Add Course +";
+      openAdd = false;
+    }
+  }
+
+  var openDelCourse = false;
+  function delCourse(){
+    if(openDelCourse == false){
+      closeButtons();
+      document.getElementById("delMyCourse").style.display = "block";
+      document.getElementById("del_courseButton").innerHTML = "Delete Course -";
+      openDelCourse = true;
+    }
+    else{
+      document.getElementById("delMyCourse").style.display = "none";
+      document.getElementById("del_courseButton").innerHTML = "Delete Course +";
+      openDelCourse = false;
+    }
+  }
+
+  function closeButtons(){
+    openAdd = true;
+    addCourse();
+    openDelCourse = true;
+    delCourse();
+  }
+
+</script>
