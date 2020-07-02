@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <!-- Control Center for My Courses-->
+    <!-- Control Center for My Courses--> <!--
     <div style="text-align: center; color: rgb(0, 46, 108); font-size: 22pt; text-decoration: underline;">Your Courses</div>
     <div style="text-align: center;">
         <div class="control_button" onclick="addCourse()" id="add_courseButton">Add Course +</div>
@@ -43,6 +43,7 @@
         <label for="courseid">Course ID (EX. ANTH_1A)</label>
         <input type="text" name="courseid" value=""required>
         <br>
+        <input type="hidden" name ="googleemail" value="<%= user.googleemail %>">
         <input class="button" type="submit" value="submit">
       </form>
 
@@ -55,17 +56,39 @@
         <label for="courseid">Course ID (EX. ANTH_1A)</label>
         <input type="text" name="courseid" value=""required>
         <br>
+        <input type="hidden" name ="googleemail " value="<%= user.googleemail %>">
         <input class="button" type="submit" value="submit">
-    </form>
+    </form> -->
 
     <!-- My Courses Grid-->
-    <br>
+   <!-- <br>
     <div class="grid_container">
             <div class="grid_header" style="grid-column: first/second;">Department</div>
             <div class="grid_header" style="grid-column: second/third;">Professor</div>
             <div class="grid_header" style="grid-column:third/fourth;">Course ID</div>
             <div class = "grid_header" style="grid-column:fourth/fifth;">TAs</div>
+            <div class = "grid_header" style="grid-column: fifth/sixth;">Schedule</div>
 
+             <% //user.gridids.forEach(element => {%>
+                <div class="grid_content"><%= //element.department %></div>
+                <div class="grid_content"><%= //element.prof_name %><div class="grid_content_hidden">Office: <%= //element.prof_office %> <br> Hours: <%= //element.prof_hours %></div></div>
+                <div class="grid_content"><%= //element.courseid %> </div>
+                <div class="grid_content">
+                  <%  //element.tas.forEach(ta => {%>
+                  <%= //ta.ta_name %>:  <%= //ta.ta_hours %>
+                  <br>
+                  <%  //}) %>
+                </div>
+                <div class = "grid_content">
+                    <% //if(!loggedIn){ %>
+                      <a href="/auth/google">Schedule with this class</a>
+                   <% //} else {%>
+                    <a href="./pro/<%=// element._id%>">Schedule with this class</a>
+                    <% //};%>
+                </div>
+              <%//})%> -->
+                
+           
             <!-- <% // myClasses.forEach(element => {%>
                 <div class="grid_content"><%= // element.department %></div>
                 <div class="grid_content"><%=// element.prof_name %><div class="grid_content_hidden">Office: <%= // element.prof_office %> <br> Hours: <%= // element.prof_hours %></div></div>

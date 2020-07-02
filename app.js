@@ -53,7 +53,6 @@ app.get("/andrew", homeController.showAndrew);
 app.get("/julian",homeController.showJulian);
 app.get("/test_prof_profile",homeController.showTestProf);
 app.get("/test_class_schedule",homeController.showTestSchedule);
-app.get("/profile", homeController.showProfile);
 app.get("/pro/:id", (req, res) => {
     Grid.findById(req.params.id, (err, doc) => {
         res.render('pro', {
@@ -61,6 +60,56 @@ app.get("/pro/:id", (req, res) => {
         })
     })
 });
+
+//render profile with myCourses
+app.get("/profile",
+async(req,res,next) => {
+  try {
+    //res.locals.myCourses = await Grid.find()
+    res.render('profile')
+  }
+  catch(e) {
+    next(e)
+  }
+}); 
+
+/* Attempt for my Courses
+  app.post("/addMyCourse", 
+  async(req,res,next) => {
+  try {
+    let prof_name = req.body.prof_name
+    let courseid = req.body.courseid
+    let googleemail = req.body.googleemail
+    let me = await User.findOne({googleemail:googleemail})
+    let z = await Grid.findOne({prof_name:prof_name, courseid:courseid})
+    me.gridids.push(z)
+    console.log(me)
+    me.save()
+    res.redirect('/profile')
+  }
+  catch(e) {
+    next(e)
+  }
+});
+
+app.post("/delMyCourse", 
+  async(req,res,next) => {
+  try {
+    let prof_name = req.body.prof_name
+    let courseid = req.body.courseid
+    let googleemail = req.body.googleemail
+    let me = await User.findOne({googleemail:googleemail})
+    let z = await Grid.findOne({prof_name:prof_name, courseid:courseid})
+    me.gridids.push(z)
+    console.log(me)
+    me.save()
+    res.redirect('/profile')
+  }
+  catch(e) {
+    next(e)
+  }
+});
+*/
 
 
 

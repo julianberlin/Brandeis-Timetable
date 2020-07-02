@@ -99,7 +99,7 @@ a {
 }
 .grid_container{
   display: grid;
-  grid-template-columns: [first] auto [second] auto [third] auto [fourth] auto [fifth];
+  grid-template-columns: [first] auto [second] auto [third] auto [fourth] auto [fifth] auto [sixth];
   grid-template-rows: [first] auto [second] auto [third] auto [last];
   border: 1px solid rgb(0, 0, 0);
   place-self: center;
